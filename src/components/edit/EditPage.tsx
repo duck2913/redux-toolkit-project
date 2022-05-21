@@ -1,5 +1,7 @@
-import { FormEventHandler, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import classes from "./EditPage.module.css";
+import { updateInfo } from "../store/userSlice";
 
 interface Props {
 	onCloseEdit: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,6 +20,8 @@ const avaUrl = [
 ];
 
 function EditPage({ onCloseEdit }: Props) {
+	const dispatch = useDispatch();
+
 	const nameRef = useRef<HTMLInputElement>(null);
 	const ageRef = useRef<HTMLInputElement>(null);
 	const aboutRef = useRef<HTMLTextAreaElement>(null);
@@ -30,40 +34,36 @@ function EditPage({ onCloseEdit }: Props) {
 
 	function submitFormHandler(event: React.FormEvent) {
 		event.preventDefault();
-
-		const enteredName = nameRef.current?.value;
-		const enteredAge = ageRef.current?.value;
-		const enteredAbout = aboutRef.current?.value;
-		const enteredColor = colorRef.current?.value;
-		const enteredImgUrl = selectedUrl;
-
+		console.log(2);
+		const name = nameRef.current?.value;
+		const age = Number(ageRef.current?.value);
+		const about = aboutRef.current?.value;
+		const color = colorRef.current?.value;
+		const url = selectedUrl;
 		const userInfo = {
-			enteredName,
-			enteredAge,
-			enteredAbout,
-			enteredColor,
-			enteredImgUrl,
+			name,
+			age,
+			about,
+			color,
+			url,
 		};
 		console.log(userInfo);
+		dispatch(updateInfo(userInfo));
+		onCloseEdit(false);
 	}
 
 	return (
 		<form onSubmit={submitFormHandler}>
 			<div className={classes["edit-container"]}>
-				<button
-					className={classes.close}
-					onClick={() => {
-						onCloseEdit(false);
-					}}
-				>
-					Save
-				</button>
+				<button className={classes.close}>Save</button>
 				<div className={classes["edit-profile"]}>Edit profile</div>
 				<div className={classes["input-container"]}>
 					<label htmlFor="username">Username</label>
 					<input type="text" id="username" placeholder="Ex: Minh Duc" ref={nameRef} />
+
 					<label htmlFor="name">Name</label>
 					<input type="text" id="name" placeholder="20" ref={ageRef} />
+
 					<label htmlFor="about">About</label>
 					<textarea
 						id="about"

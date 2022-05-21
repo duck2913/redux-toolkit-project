@@ -1,13 +1,18 @@
+import { useSelector } from "react-redux";
 import classes from "./Header.module.css";
+import { RootState } from "../../components/store/store";
 
 interface Props {
 	onShowEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function Header({ onShowEdit }: Props) {
+	const userInfo = useSelector((state: RootState) => state.userInfo);
 	return (
 		<>
-			<header style={{ backgroundImage: "linear-gradient(180deg, #ff9051, #181818)" }}>
+			<header
+				style={{ backgroundImage: `linear-gradient(180deg, ${userInfo.color}, #181818)` }}
+			>
 				<div className={classes["info-container"]}>
 					<button
 						className={classes["info-edit"]}
@@ -17,13 +22,10 @@ function Header({ onShowEdit }: Props) {
 					>
 						Edit
 					</button>
-					<img
-						src="https://preview.redd.it/rrz3hmsxcll71.png?width=640&crop=smart&auto=webp&s=87cc5ed38d8f088ef9fffef7a4c5756b64309d6a"
-						alt=""
-						className={classes["info-ava"]}
-					/>
-					<div className={classes["info-age"]}>21</div>
-					<div className={classes["info-about"]}>Hi am a developer</div>
+					<img src={userInfo.url} alt="" className={classes["info-ava"]} />
+					<div className={classes["info-name"]}>{userInfo.name}</div>
+					<div className={classes["info-age"]}>{userInfo.age}</div>
+					<div className={classes["info-about"]}>{userInfo.about}</div>
 				</div>
 			</header>
 		</>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import EditPage from "./components/edit/EditPage";
-import Header from "./components/header/Header";
+import EditPage from "./components/Edit/EditPage";
+import Header from "./components/Header/Header";
 
 function App() {
 	const [isEditing, setIsEditing] = useState<boolean>(false);
