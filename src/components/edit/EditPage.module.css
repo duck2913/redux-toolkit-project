@@ -3,9 +3,10 @@
 	align-items: center;
 	flex-direction: column;
 	background-color: #0c0c0c;
-	min-height: 120vh;
-	position: fixed;
+	min-height: 100%;
 	width: 100%;
+	position: absolute;
+	z-index: 2;
 }
 
 .close {
@@ -49,6 +50,7 @@
 	grid-template-columns: repeat(3, 1fr);
 	row-gap: 0.7rem;
 	column-gap: 1rem;
+	margin-bottom: 2rem;
 }
 
 label:nth-child(7) {
@@ -69,7 +71,7 @@ label:nth-child(7) {
 .theme-container {
 	display: flex;
 	align-items: center;
-	margin-bottom: 3rem;
+	margin-bottom: 4rem;
 }
 
 .theme-container > label {

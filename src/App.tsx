@@ -8,7 +8,7 @@ function App() {
 
 	return (
 		<div className="App">
-			{isEditing && <EditPage />}
+			{isEditing && <EditPage onCloseEdit={setIsEditing} />}
 			<Header onShowEdit={setIsEditing} />
 		</div>
 	);
