@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import classes from "./EditPage.module.css";
-import { updateInfo } from "../store/userSlice";
+import updateUser from "../store/apiRequest";
 
 interface Props {
 	onCloseEdit: React.Dispatch<React.SetStateAction<boolean>>;
@@ -34,7 +34,6 @@ function EditPage({ onCloseEdit }: Props) {
 
 	function submitFormHandler(event: React.FormEvent) {
 		event.preventDefault();
-		console.log(2);
 		const name = nameRef.current?.value;
 		const age = Number(ageRef.current?.value);
 		const about = aboutRef.current?.value;
@@ -47,8 +46,7 @@ function EditPage({ onCloseEdit }: Props) {
 			color,
 			url,
 		};
-		console.log(userInfo);
-		dispatch(updateInfo(userInfo));
+		updateUser(userInfo, dispatch);
 		onCloseEdit(false);
 	}
 
@@ -61,8 +59,8 @@ function EditPage({ onCloseEdit }: Props) {
 					<label htmlFor="username">Username</label>
 					<input type="text" id="username" placeholder="Ex: Minh Duc" ref={nameRef} />
 
-					<label htmlFor="name">Name</label>
-					<input type="text" id="name" placeholder="20" ref={ageRef} />
+					<label htmlFor="age">Age</label>
+					<input type="text" id="age" placeholder="20" ref={ageRef} />
 
 					<label htmlFor="about">About</label>
 					<textarea
