@@ -1,0 +1,96 @@
+.newpost-container {
+	height: 70vh;
+	background-color: #292929;
+	padding: 0.75rem 1.25rem 0 1.25rem;
+	border-radius: 14px;
+	display: flex;
+	flex-direction: column;
+}
+
+.newpost-navigation {
+	display: flex;
+	justify-content: flex-end;
+	font-size: 1.25rem;
+}
+
+.newpost-save {
+	cursor: pointer;
+	padding: 5px 10px;
+}
+
+.newpost-desc {
+	background-color: #535353;
+	color: white;
+	border: none;
+	font-family: "Noto Sans", sans-serif;
+	padding: 0.25rem 0.5rem 4rem 0.5rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+textarea {
+	background-color: #535353;
+	border: none;
+	border-radius: 1rem;
+	padding: 10px;
+	font-size: 1rem;
+	color: white;
+	margin-bottom: 1rem;
+}
+
+.newpost-title {
+	height: 50px;
+	background-color: #535353;
+	color: white;
+	border: none;
+	font-family: "Noto Sans", sans-serif;
+	padding: 0.25rem 0.5rem 4rem 0.5rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.newpost-tags {
+	margin-top: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.newpost-tags > button {
+	color: white;
+
+	border: none;
+
+	padding: 0.4rem;
+
+	font-family: "Noto Sans", sans-serif;
+
+	border-radius: 14px;
+
+	cursor: pointer;
+}
+
+.newpost-tags-NSFW {
+	background-color: rgb(209, 66, 47);
+}
+
+.newpost-tags-Mood {
+	background-color: rgb(1, 111, 201);
+}
+
+.newpost-tags-Quotes {
+	background-color: rgb(183, 47, 224);
+}
+
+.newpost-tags-Shitpost {
+	background-color: rgb(197, 186, 23);
+}
+
+.newpost-tags-None {
+	background-color: grey;
+}
+
+.newpost-tags-selected {
+	background-color: teal;
+	box-shadow: 0px 0px 10px 7px rgb(0, 204, 160);
+}

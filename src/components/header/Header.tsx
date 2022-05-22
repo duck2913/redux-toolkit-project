@@ -7,7 +7,7 @@ interface Props {
 }
 
 function Header({ onShowEdit }: Props) {
-	const userInfo = useSelector((state: RootState) => state.userInfo);
+	const userInfo = useSelector((state: RootState) => state.userSlice);
 	return (
 		<>
 			<header

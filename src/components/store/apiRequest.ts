@@ -1,4 +1,4 @@
-import { updateStart, updateError, updateSuccess } from "./userSlice";
+import { updateStart, updateSuccess } from "./userSlice";
 
 const updateUser = async function (userInfo, dispatch) {
 	dispatch(updateStart());
