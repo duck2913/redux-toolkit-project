@@ -19,7 +19,7 @@ function App() {
 			{isEditing && <EditPage onCloseEdit={setIsEditing} />}
 			<Header onShowEdit={setIsEditing} />
 			{isMakingNewPost && <NewPost onSaveNewPost={toggleNewPostModalHandler} />}
-			<Posts />
+			{!isMakingNewPost && <Posts />}
 			<Footer
 				onToggleNewPostModal={toggleNewPostModalHandler}
 				isMakingNewPost={isMakingNewPost}
